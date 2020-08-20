@@ -26,3 +26,21 @@ function binarySearchIterate(arr, x) {
 }
 
 console.log(binarySearchIterate(testArr, 2));
+
+
+function binarySearchRecursive(arr, x, start, end) {
+	if (start > end)
+		return -1;
+
+	let mid = Math.floor((start + end) / 2);
+
+	if (arr[mid] === x)
+		return mid;
+
+	if (arr[mid] < x)
+		return binarySearchRecursive(arr, x, mid + 1, end)
+	else
+		return binarySearchRecursive(arr, x, start, mid - 1)
+}
+
+console.log(binarySearchRecursive(testArr, 64, 0, testArr.length - 1));
